@@ -30,7 +30,7 @@ CentOS 7, Ubuntu 16 or Debian 8
 2 NIC
 ]
 
-node security2 [io
+node security2 [
 KaPA Security server
 2+n
 ----
@@ -58,12 +58,22 @@ CentOS 7, Ubuntu 16 or Debian 8
 2 NIC
 ]
 
+interface DMZ2[
+  DMZ
+]
+
+interface DMZ3[
+  DMZ
+]
+
 
 DMZ -up-- security1 : SOAP/XML
-security1 -up-- security2
+security1 -up-- DMZ2
+DMZ2 -up--security2
 security2 -up-- odakapaint
 firewall -up--front
-front -up--internet2 : HTML5
+front -up--DMZ3
+DMZ3 -up--internet2 : HTML5
 
 
 
