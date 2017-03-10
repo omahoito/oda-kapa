@@ -1,4 +1,6 @@
-# ODA definitions
+# ODA Kapa
+
+Contains the information for integration of the ODA system to the National Service Architecture KaPA.
 
 * [Working with diagrams](diagrams.md)
 * [Codes and code systems](codesets.md)
