@@ -97,6 +97,6 @@ Contains the information for integration of the ODA system to the National Servi
 
 
 
+## Logical diagram
 
-
-
+![](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/omahoito/oda-kapa/master/logical.plantuml?1) <!--- This generates a picture based on deployment.md. To change the counter in the url above, i.e. deployment.md?13 -> deployment.md?14 --->
