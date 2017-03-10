@@ -5,18 +5,70 @@ endheader
 
 cloud internet1
 cloud internet2
-cloud firewall [ 
+cloud firewall [
 Firewall 1 and 2
 ]
 interface DMZ
-cloud loadbalancer1 [ 
+cloud loadbalancer1 [
 Loadbalancer 1 and 2
 ]
 interface VLAN1 [
-VLAN 1 and 2 
+VLAN 1 and 2
 ]
+
+
+
+node security1 [
+ODA Security server
+2+n
+----
+CentOS 7, Ubuntu 16 or Debian 8
+....
+32G+ RAM
+4+ CPU
+250G+ SSD storage
+2 NIC
+]
+
+node security2 [io
+KaPA Security server
+2+n
+----
+CentOS 7, Ubuntu 16 or Debian 8
+....
+32G+ RAM
+4+ CPU
+250G+ SSD storage
+2 NIC
+]
+
+node odakapaint [
+Kapa integration point
+]
+
+node front[
+Web Application server
+2+n
+----
+CentOS 7, Ubuntu 16 or Debian 8
+....
+32G+ RAM
+4+ CPU
+250G+ SSD storage
+2 NIC
+]
+
+
+DMZ -up-- security1 : SOAP/XML
+security1 -up-- security2
+security2 -up-- odakapaint
+firewall -up--front
+front -up--internet2 : HTML5
+
+
+
 node nodeas1 [
-Application server 
+Application server
 2+n
 ----
 CentOS 7, Ubuntu 16 or Debian 8
@@ -27,7 +79,7 @@ CentOS 7, Ubuntu 16 or Debian 8
 2 NIC
 ]
 database database1 [
-Database Server 
+Database Server
 2+n
 ----
 CentOS 7, Ubuntu 16 or Debian 8
@@ -38,7 +90,7 @@ SAN 1T+ Storage
 2 NIC
 ]
 database logging1 [
-Logging Server 
+Logging Server
 2+n
 ----
 CentOS 7, Ubuntu 16 or Debian 8
@@ -92,7 +144,7 @@ CentOS 7, Ubuntu 16 or Debian 8
 4 NIC
 ]
 node nodevm [
-Temporary Server 
+Temporary Server
 0+n
 ----
 CentOS 7, Ubuntu 16 or Debian 8
@@ -107,13 +159,15 @@ database SAN1
 database SAN2
 database Backup
 
-internet1 -- firewall
-internet2 -- firewall
-firewall -- DMZ 
-firewall -- DMZ 
+internet1 -- firewall : REST/JSON
+' internet2 -- firewall
+firewall -- DMZ
+firewall -- DMZ
 
-DMZ -- loadbalancer1 
-DMZ -- loadbalancer1 
+
+
+DMZ -- loadbalancer1
+DMZ -- loadbalancer1
 
 
 DMZ -- nodeci
