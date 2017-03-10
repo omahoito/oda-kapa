@@ -8,7 +8,7 @@ Contains the information for integration of the ODA system to the National Servi
 
 ## Deployment architecture
 
-![](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/omahoito/oda-kapa/master/deployment.plantuml?1) <!--- This generates a picture based on deployment.md. To change the counter in the url above, i.e. deployment.md?13 -> deployment.md?14 --->
+![](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/omahoito/oda-kapa/master/deployment.plantuml?2) <!--- This generates a picture based on deployment.md. To change the counter in the url above, i.e. deployment.md?13 -> deployment.md?14 --->
 
 ###Peruskokoonpanot
 ####Peruskokoonpano 
@@ -95,11 +95,3 @@ Contains the information for integration of the ODA system to the National Servi
 | ------------- |:-------------:| -----:|
 | ![](logical.png)      | ![](optional.png) | ![](physical.png) |
 
-
-
-## Logical diagram
-
-The e-services for your well-being (ODA) application server provides data in json form and adhering to the FHIR healtcare standard for information provision. Since KaPA currently only serves information through SOAP, the data is passed through an ESB server which converts the data from json to xml. A security server acts as a certification provider for the data. Both ODA and KAPA have their own security servers to ensure the validity of the data. Besides Kapa, ODA also has its own interface to the internet through a proxy, which can serve information both directly as a REST server, and through a web front end server.
-
-
-![](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/omahoito/oda-kapa/master/logical.plantuml?1) <!--- This generates a picture based on deployment.md. To change the counter in the url above, i.e. deployment.md?13 -> deployment.md?14 --->
