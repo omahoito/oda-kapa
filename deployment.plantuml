@@ -62,18 +62,14 @@ interface DMZ2[
   DMZ
 ]
 
-interface DMZ3[
-  DMZ
-]
 
 
 DMZ -up-- security1 : SOAP/XML
 security1 -up-- DMZ2
 DMZ2 -up--security2
 security2 -up-- odakapaint
-firewall -up--front
-front -up--DMZ3
-DMZ3 -up--internet2 : HTML5
+DMZ --front
+
 
 
 
@@ -170,7 +166,7 @@ database SAN2
 database Backup
 
 internet1 -- firewall : REST/JSON
-' internet2 -- firewall
+internet2 -- firewall
 firewall -- DMZ
 firewall -- DMZ
 
@@ -218,4 +214,7 @@ nodevm .. DMZ
 nodevm ~~ logging1
 nodeci ~~ nodevm
 NAS .. VLAN1
+
+nodeproxy -up--front
+
 @enduml
