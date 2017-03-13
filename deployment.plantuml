@@ -16,8 +16,6 @@ interface VLAN1 [
 VLAN 1 and 2
 ]
 
-
-
 node security1 [
 ODA Security server
 2+n
@@ -58,15 +56,14 @@ CentOS 7, Ubuntu 16 or Debian 8
 2 NIC
 ]
 
-interface DMZ2[
-  DMZ
+cloud internet3 [
+  internet3
 ]
 
 
-
 DMZ -up-- security1 : SOAP/XML
-security1 -up-- DMZ2
-DMZ2 -up--security2
+security1  -up--internet3
+internet3 -up--security2
 security2 -up-- odakapaint
 DMZ --front
 
